@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="20dp"
+    android:id="@+id/parent_layout"
+    android:layout_margin="5dp"
+    android:padding="10dp"
+    android:background="#fff"
     android:layoutDirection="ltr">
     <TextView
         android:id="@+id/native_name"

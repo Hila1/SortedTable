@@ -12,8 +12,8 @@ public class CountryViewHolder extends RecyclerView.ViewHolder {
 
     public CountryViewHolder(@NonNull View itemView) {
         super(itemView);
-        nativeName = itemView.findViewById(R.id.native_name);
-        englishName = itemView.findViewById(R.id.english_name);
+        nativeName = itemView.findViewById(R.id.border_native_name);
+        englishName = itemView.findViewById(R.id.border_english_name);
 
     }
 }
