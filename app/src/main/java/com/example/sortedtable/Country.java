@@ -4,16 +4,16 @@ public class Country {
     String nativeName;
     String englishName;
     String borders;
-    String area;
+    Double area;
 
     public Country() {
     }
 
-    public String getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 

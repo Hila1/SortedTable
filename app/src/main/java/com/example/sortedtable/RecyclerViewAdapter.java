@@ -18,6 +18,8 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
     private static final String TAG = "RecyclerViewAdapter";
+    public static final String COUNTRY_NAME = "country_name";
+    public static final String COUNTRY_BORDERS = "country_borders";
     private ArrayList<Country> countries = new ArrayList<>();
     private Context mContext;
 
@@ -45,9 +47,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Log.d(TAG, "onClick: clicked on: " + countries.get(position).getEnglishName());
                 Toast.makeText(mContext, countries.get(position).getEnglishName(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext, BorderCountriesActivity.class);
-                intent.putExtra("country_name",countries.get(position).getEnglishName());
-                intent.putExtra("country_borders",countries.get(position).getBorders());
+                intent.putExtra(COUNTRY_NAME,countries.get(position).getEnglishName());
+                intent.putExtra(COUNTRY_BORDERS,countries.get(position).getBorders());
                 mContext.startActivity(intent);
+
             }
         });
     }

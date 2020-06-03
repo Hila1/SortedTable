@@ -12,7 +12,8 @@
         android:id="@+id/native_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="native Name"
+        android:text="@string/native_name"
+        android:maxLength="15"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/english_name"/>
@@ -21,7 +22,8 @@
         android:id="@+id/english_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="english name"
+        android:text="@string/english_name"
+        android:maxLength="15"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/native_name"/>

@@ -22,6 +22,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static com.example.sortedtable.RecyclerViewAdapter.COUNTRY_BORDERS;
+import static com.example.sortedtable.RecyclerViewAdapter.COUNTRY_NAME;
+
 public class BorderCountriesActivity extends AppCompatActivity {
 
     private static final String TAG = "BorderCountriesActivity";
@@ -50,16 +53,16 @@ public class BorderCountriesActivity extends AppCompatActivity {
     private void getIncomingIntent(){
         Log.d(TAG, "getIncomingIntent: checking for incoming intents");
         // check if there are any extras so the app wont crush
-        if (getIntent().hasExtra("country_name") && getIntent().hasExtra("country_borders")){
+        if (getIntent().hasExtra(COUNTRY_NAME) && getIntent().hasExtra(COUNTRY_BORDERS)){
             Log.d(TAG, "getIncomingIntent: found incoming intents");
-            String countryName = getIntent().getStringExtra("country_name");
-            String countryBorders = getIntent().getStringExtra("country_borders");
+            String countryName = getIntent().getStringExtra(COUNTRY_NAME);
+            String countryBorders = getIntent().getStringExtra(COUNTRY_BORDERS);
 
             setCountryNameToTitle(countryName);
             if (countryBorders.length() > 2)
                 getBordersData(countryBorders);
             else
-                Toast.makeText(this, "this country has no borders with other countries", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.no_borders), Toast.LENGTH_SHORT).show();
         }
         else{ Log.d(TAG, "getIncomingIntent: no incoming intents"); }
     }

@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                 Country country = new Country();
                 country.setNativeName(jsonObject.getString("nativeName"));
                 country.setEnglishName(jsonObject.getString("name"));
+                country.setArea(result(jsonObject));
                 country.setBorders(jsonObject.getString("borders"));
-                country.setArea(jsonObject.getString("area"));
                 countries.add(country);
             }
             addItemsToRecyclerView();
@@ -83,15 +83,22 @@ public class MainActivity extends AppCompatActivity {
         catch (JSONException e){
             Toast.makeText(MainActivity.this, "Json is not valid", Toast.LENGTH_SHORT).show();
         }
-        recyclerViewAdapter.notifyDataSetChanged();
         progressDialog.dismiss();
     }
+
+    private double result(JSONObject jsonObject) {
+        try {
+            return jsonObject.getDouble("area");
+        } catch (Exception e){ return 0.0; }
+    }
+
     private void addItemsToRecyclerView() {
         recyclerView = findViewById(R.id.recyclerView_all_countries);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewAdapter = new RecyclerViewAdapter(this, countries);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewAdapter.notifyDataSetChanged();
     }
 
     public void onClickBtnSortByName(View v)
@@ -105,6 +112,19 @@ public class MainActivity extends AppCompatActivity {
         Collections.sort(countries, new SortByArea());
         addItemsToRecyclerView();
     }
+
+    public void onClickBtnSortByAreaDescending(View view) {
+        Collections.sort(countries, new SortByArea());
+        Collections.reverse(countries);
+        addItemsToRecyclerView();
+    }
+
+    public void onClickBtnSortByNameDescending(View view) {
+        Collections.sort(countries, new SortByName());
+        Collections.reverse(countries);
+        addItemsToRecyclerView();
+    }
+
     class SortByArea implements Comparator<Country>
     {
         // Used for sorting by area size

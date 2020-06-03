@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SortedTable</string>
+    <string name="country_name">country name english + native name</string>
+    <string name="the_border_countries_are">The border countries are:</string>
+    <string name="english_name">English name</string>
+    <string name="native_name">Native name</string>
+    <string name="sort_by_name">Sort by name\nascending</string>
+    <string name="sort_by_area">Sort by area\nascending</string>
+    <string name="sort_by_area_descending">sort by area\n descending</string>
+    <string name="sort_by_name_descending">sort by name\ndescending</string>
+    <string name="no_borders">This country has no borders with other countries</string>
 </resources>
